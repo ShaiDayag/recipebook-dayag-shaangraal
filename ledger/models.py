@@ -8,7 +8,7 @@ class Recipe(models.Model):
     name = models.CharField(max_length=100)
 
 class RecipeIngredient(models.Model):
-    quantity = models.DecimalField(max_digits=10)
+    quantity = models.CharField(max_length=50)
     ingredient = models.ForeignKey(
         Ingredient,
         on_delete=models.SET_NULL,
