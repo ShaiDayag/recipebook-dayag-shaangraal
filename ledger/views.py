@@ -1,5 +1,6 @@
 from .models import Recipe, RecipeIngredient
-from .views import ListView, DetailView
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 
 class RecipeListView(ListView):
     model = Recipe
