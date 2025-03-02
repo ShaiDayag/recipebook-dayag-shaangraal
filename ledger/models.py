@@ -12,13 +12,13 @@ class RecipeIngredient(models.Model):
     ingredient = models.ForeignKey(
         Ingredient,
         on_delete=models.SET_NULL,
-        null=True
+        null=True,
         related_name="recipe"
     )
     recipe = models.ForeignKey(
         Recipe,
         on_delete=models.SET_NULL,
-        null=True
+        null=True,
         related_name="ingredients"
     )
 
