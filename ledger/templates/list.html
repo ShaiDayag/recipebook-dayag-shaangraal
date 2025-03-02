@@ -5,9 +5,9 @@
 
 <h2>Recipe List</h2>
 <ul>
-    {% for recipe in recipes.all %}
+    {% for recipe in recipe.recipes.all %}
     <li>
-        <a href={{ recipe.recipe.link }}>{{ recipe.recipe.name }}</a>
+        <a href={{ recipe.get_absolute_url }}>{{ recipe.__str__ }}</a>
     </li>
     {% endfor %}
 </ul>
