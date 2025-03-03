@@ -7,6 +7,9 @@ class RecipeIngredientInline(admin.TabularInline):
 class RecipeAdmin(admin.ModelAdmin):
     model = Recipe
     inlines = [RecipeIngredientInline,]
+
+class RecipeIngredientAdmin(admin.ModelAdmin):
+    model = RecipeIngredient
     fieldsets = [
         ('Details', {
             'fields': [
@@ -14,3 +17,6 @@ class RecipeAdmin(admin.ModelAdmin):
             ]
         }),
     ]
+
+admin.site.register(Recipe, RecipeAdmin)
+admin.site.register(RecipeIngredient, RecipeIngredientAdmin)
