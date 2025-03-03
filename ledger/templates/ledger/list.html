@@ -1,13 +1,14 @@
-{% extends 'base.html' %}
+{% extends 'ledger/base.html' %}
 {% load static %}
 {% block title %}Recipe List{% endblock %}
 {% block content %}
-
 <h2>Recipe List</h2>
 <ul>
-    {% for recipe in Recipe.objects.all %}
+    {% for recipe in object_list %}
     <li>
-        <a href={{ recipe.get_absolute_url }}>{{ recipe.__str__ }}</a>
+        <a href={{ recipe.get_absolute_url }}>
+            {{ recipe.name }}
+        </a>
     </li>
     {% endfor %}
 </ul>
