@@ -1,5 +1,5 @@
 .env
-recipebook/db.sqlite3
+db.sqlite3
 lab1env/
 **/*.pyc
 **/__pycache__/
