@@ -4,8 +4,8 @@ from .models import Recipe, RecipeIngredient
 
 class RecipeListView(ListView):
     model = Recipe
-    template_name = 'list'
+    template_name = 'ledger/list.html'
     
 class RecipeView(DetailView):
     model = RecipeIngredient
-    template_name = 'recipe'
+    template_name = 'ledger/recipe.html'
