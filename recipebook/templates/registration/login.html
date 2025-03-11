@@ -1,11 +1,12 @@
 {% extends 'ledger/base.html' %}
 {% load static %}
-{% block title %}Password Reset Request{% endblock %}
+{% block title %}Login{% endblock %}
 {% block content %}
-    <h3>Password Reset Request</h3>
+    <h3>Login Page</h3>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Reset password">
+        <input type="submit" value="Login">
     </form>
+    <a href="{% url 'password_reset' %}">Forgot Password?</a>
 {% endblock %}
