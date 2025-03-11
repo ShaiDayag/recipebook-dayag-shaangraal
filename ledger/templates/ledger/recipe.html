@@ -2,12 +2,16 @@
 {% load static %}
 {% block title %}{{ object.recipe.name }} Recipe{% endblock %}
 {% block content %}
-<h2>{{ object.recipe.name }}</h2>
-<ul>
-    {% for ingredient in object.recipe.ingredients.all %}
-    <li>
-        {{ ingredient.quantity }} of {{ ingredient.ingredient.name }}
-    </li>
-    {% endfor %}
-</ul>
+    {% if request.user.is_authenticated %}
+        <h3>{{ object.recipe.name }} Recipe by {{ recipe.author.name }}</h3>
+        <ul>
+            {% for ingredient in object.recipe.ingredients.all %}
+            <li>
+                {{ ingredient.quantity }} of {{ ingredient.ingredient.name }}
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You are not authorized to view this page!</p>
+    {% endif %}
 {% endblock %}
