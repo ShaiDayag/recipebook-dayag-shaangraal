@@ -3,5 +3,5 @@ from django.contrib.auth.models import User
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, max_length=50)
+    name = models.OneToOneField(User, on_delete=models.CASCADE)
     short_bio = models.TextField(blank=True)
