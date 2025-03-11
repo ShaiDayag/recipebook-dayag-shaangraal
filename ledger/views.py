@@ -10,11 +10,7 @@ class RecipeListView(ListView):
     template_name = 'ledger/list.html'
 
 
-class RecipeDetailView(DetailView):
+class RecipeDetailView(LoginRequiredMixin, DetailView):
     model = RecipeIngredient
-    template_name = 'ledger/recipe.html'
-
-
-class RestrictedRecipeDetailView(LoginRequiredMixin, RecipeDetailView):
     template_name = 'ledger/recipe.html'
     redirect_field_name = 'registration/login.html'
