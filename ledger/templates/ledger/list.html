@@ -1,4 +1,4 @@
-{% extends 'ledger/base.html' %}
+{% extends "ledger/base.html" %}
 {% load static %}
 {% block title %}Recipe List{% endblock %}
 {% block content %}
@@ -13,6 +13,7 @@
             </li>
             {% endfor %}
         </ul>
+        <a href="{% url 'ledger:recipe-create' %}">Create new recipe</a>
     {% else %}
         <p>You are not authorized to view this page!</p>
     {% endif %}

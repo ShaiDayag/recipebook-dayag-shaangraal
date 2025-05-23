@@ -1,0 +1,14 @@
+{% extends 'ledger/base.html' %}
+{% load static %}
+{% block title %}{{ object.recipe.name }} Recipe{% endblock %}
+{% block content %}
+    {% if request.user.is_authenticated %}
+        {% if object.recipe.images.all %}
+            <img src="{{ object.image.image.url }}" alt="{{ image.description }}">
+        {% endif %}
+            {% comment %} <a href="{% url 'ledger:recipe-update' object.recipe.pk %}">Upload images to recipe</a> {% endcomment %}
+    {% else %}
+        <p>You are not authorized to view this page! Please log in!</p>
+    {% endif %}
+{% endblock %}
+

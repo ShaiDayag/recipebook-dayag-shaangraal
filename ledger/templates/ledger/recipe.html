@@ -1,17 +1,23 @@
 {% extends 'ledger/base.html' %}
 {% load static %}
-{% block title %}{{ object.recipe.name }} Recipe{% endblock %}
+{% block title %}{{ recipe.name }} Recipe{% endblock %}
 {% block content %}
     {% if request.user.is_authenticated %}
-        <h3>{{ object.recipe.name }} Recipe by {{ recipe.author.name }}</h3>
-        <ul>
-            {% for ingredient in object.recipe.ingredients.all %}
-            <li>
-                {{ ingredient.quantity }} of {{ ingredient.ingredient.name }}
-            </li>
+        <h3>{{ recipe.name }} Recipe by {{ recipe.author }}</h3>
+        {% if images %}
+            {% for image in images %}
+                <img src="{{ image.image.url }}" alt="{{ image.image.description }}">
             {% endfor %}
-        </ul>
+        {% endif %}
+            <ul>
+                {% for ingredient in object.recipe.ingredients.all %}
+                <li>
+                    {{ ingredient.quantity }} of {{ ingredient.ingredient.name }}
+                </li>
+                {% endfor %}
+            </ul>
+        <a href="{% url 'ledger:recipe-update' object.pk %}">Upload image to recipe</a>
     {% else %}
-        <p>You are not authorized to view this page!</p>
+        <p>You are not authorized to view this page! Please log in!</p>
     {% endif %}
 {% endblock %}

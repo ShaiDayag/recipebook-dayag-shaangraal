@@ -1,0 +1,15 @@
+{% extends 'ledger/base.html' %}
+{% load static %}
+{% block title %}Recipe Form{% endblock %}
+{% block content %}
+    {% if request.user.is_authenticated %}
+        {% comment %} <form method="POST" action="{% url 'ledger:recipe' request.POST.get('recipe') %}"> {% endcomment %}
+        <form method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Submit recipe">
+        </form>
+    {% else %}
+        <p>You are not authorized to view this page! Please log in!</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'ledger/base.html' %}
+{% load static %}
+{% block title %}Recipe Image Upload Form{% endblock %}
+{% block content %}
+    {% if request.user.is_authenticated %}
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Upload image">
+        </form>
+    {% else %}
+        <p>You are not authorized to view this page! Please log in!</p>
+    {% endif %}
+{% endblock %}

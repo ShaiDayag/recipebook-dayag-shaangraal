@@ -7,12 +7,11 @@
         {% block styles %}{% endblock %}
     </head>
     <body>
-    <h1>Recipe Book</h1>
+    <h1><a href={% url 'ledger:list' %}>Recipe Book</a></h1>
         {% if request.user.is_authenticated %}
             <h2>Welcome, {{ request.user.username }}!</h2>
-            <form method="post" action="{% url 'logout' %}">
+            <form method="POST" action="{% url 'logout' %}">
                 {% csrf_token %}
-                {{ form.as_p }}
                 <input type="submit" value="Logout">
             </form>
         {% else %}
